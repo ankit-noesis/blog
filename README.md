@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails setup
 
-Things you may want to cover:
+# install rvm, bundler and ruby using rvm
+https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html 
 
-* Ruby version
+# install rails
+gem install rails
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+Steps followed to create this app
 
-* Database initialization
+# create new rails app with the name blog
+$ rails new blog
 
-* How to run the test suite
+$ cd blog
+# scaffolding of model post
+$ rails generate scaffold post title:string body:text
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ rails generate scaffold comment post_id:integer body:text
