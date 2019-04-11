@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap_form'
 gem 'faker'
+gem 'will_paginate'
 
 
 # Use Uglifier as compressor for JavaScript assets
