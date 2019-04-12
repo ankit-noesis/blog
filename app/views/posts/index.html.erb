@@ -1,15 +1,14 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
 <% if user_signed_in? %>
-Hello <%= current_user.name %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  </li>
+<tr>
+  <td><%= image_tag current_user.avatar.attached? ? current_user.avatar : 'profile.png', size: "100"%></td>
+  <td>Hello <%= current_user.name %></td>
+  <td><%= link_to('Logout', destroy_user_session_path, method: :delete) %></td>
+</tr>
 <% else %>
 Hello Guest
-  <li>
   <%= link_to('Login', new_user_session_path)  %>  
-  </li>
 <% end %>
 
 <h1>Posts</h1>

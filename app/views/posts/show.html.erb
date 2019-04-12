@@ -10,6 +10,10 @@
   <%= @post.body %>
 </p>
 
+<% if @post.image.attached?%>
+	<%= image_tag @post.image, size: "120"%>
+<% end %>
+
 
 <h2>Comments</h2>
 <%= render @post.comments %>
