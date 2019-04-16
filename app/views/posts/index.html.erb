@@ -1,20 +1,22 @@
 <!-- <p id="notice"><%= notice %></p> -->
-
-<% if user_signed_in? %>
+<!-- 
+<%# if user_signed_in? %>
 <tr>
-  <td><%= image_tag current_user.avatar.attached? ? current_user.avatar : 'profile.png', size: "100"%></td>
-  <td>Hello <%= current_user.name %></td>
-  <td><%= link_to('Logout', destroy_user_session_path, method: :delete) %></td>
+  <td><%#= image_tag current_user.avatar.attached? ? current_user.avatar : 'profile.png', size: "100"%></td>
+  <td>Hello <%#= current_user.name %></td>
+  <td><%#= link_to('Logout', destroy_user_session_path, method: :delete) %></td>
 </tr>
-<% else %>
+<%# else %>
 Hello Guest
-  <%= link_to('Login', new_user_session_path)  %>  
-<% end %>
+  <%#= link_to('Login', new_user_session_path)  %>  
+<%# end %>
+
+-->
 
 <h1>Posts</h1>
-<%= link_to 'New Post', new_post_path %>
+<%#= link_to 'New Post', new_post_path %>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Title</th>
@@ -24,19 +26,37 @@ Hello Guest
   </thead>
 
   <tbody>
-    <% @posts.each do |post| %>
+    <%# @posts.each do |post| %>
       <tr>
-        <td><%= truncate(post.title, length: 15) %></td>
-        <td><%= truncate(post.body, length: 30) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <%if user_signed_in? && current_user.id == post.user_id%>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+        <td><%#= truncate(post.title, length: 15) %></td>
+        <td><%#= truncate(post.body, length: 30) %></td>
+        <td><%#= link_to 'Show', post %></td>
+        <%# if user_signed_in? && current_user.id == post.user_id%>
+        <td><%#= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td><%# end %>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
-<br>
+<br> -->
+
+
+<% @posts.each_slice(2) do |posts| %>
+  <div class="row margin-bottom">
+    <% posts.each do |post|%>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title.titleize %></h5>
+            <p class="card-text"><%= post.body.titleize%></p>
+            <%= link_to 'View', post , class: 'btn btn-primary'%>
+            <!-- <a href="#" class="btn btn-primary">View</a> -->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 
