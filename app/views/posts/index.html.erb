@@ -13,7 +13,6 @@ Hello Guest
 
 -->
 
-<h1>Posts</h1>
 <%#= link_to 'New Post', new_post_path %>
 
 <!-- <table>
@@ -41,6 +40,7 @@ Hello Guest
 
 <br> -->
 
+<h1>Posts</h1>
 
 <% @posts.each_slice(2) do |posts| %>
   <div class="row margin-bottom">
