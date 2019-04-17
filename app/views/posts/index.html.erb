@@ -47,10 +47,11 @@ Hello Guest
     <% posts.each do |post|%>
       <div class="col-sm-4">
         <div class="card">
+          <%= image_tag post.image.attached? ? post.image : 'no-image.svg', class: 'card-img-top image-height align-self-center'%>
           <div class="card-body">
-            <h5 class="card-title"><%= post.title.titleize %></h5>
-            <p class="card-text"><%= post.body.titleize%></p>
-            <%= link_to 'View', post , class: 'btn btn-primary'%>
+            <h5 class="card-title"><%= post.title.capitalize %></h5>
+            <p class="card-text"><%= post.body.capitalize%></p>
+            <%= link_to 'View', post , class: 'btn btn-primary white-text'%>
             <!-- <a href="#" class="btn btn-primary">View</a> -->
           </div>
         </div>
