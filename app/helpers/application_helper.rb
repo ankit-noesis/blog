@@ -7,4 +7,8 @@ module ApplicationHelper
         when "alert" then "alert alert-danger"
     end
 	end
+
+	def formatted_date(date)
+		date.strftime("%B")[0..2]+' '+date.strftime("%d")+', '+date.strftime("%Y")
+	end
 end
