@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Created At</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @users.each do |user|%>
+	    <tr data-link="<%= user_path(user) %>">
+	    	<th scope="row"><%= user.id%></th>
+	      <td><%= user.name%></th>
+	      <td><%= user.email%></td>
+	      <td><%= formatted_date(user.created_at)%></td>
+	      <td><%= user.avatar if user.avatar.attached? %></td>
+	      <td><button type="button" class="btn btn-danger"><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'white-text' %></button></td>
+	      <!-- <td><%#= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, type: 'button', class: 'btn btn-danger' %></td> -->
+	    </tr>
+    <% end %>
+  </tbody>
+</table>
