@@ -6,5 +6,4 @@ class Post < ApplicationRecord
                     length: { minimum: 5 }
     validates :body, presence: true,
                     length: { minimum: 20 }
-    # paginates_per 50
 end
